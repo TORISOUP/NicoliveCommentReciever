@@ -33,7 +33,7 @@ namespace NicoliveCommentReciever
             var comments = client.TakeRecievedComments();
             for (var i = 0; i < comments.Length; i++)
             {
-                MessageRecievedEvent(this, new CommentRecievedEventArgs(comments[i]));
+                if (MessageRecievedEvent != null) MessageRecievedEvent(this, new CommentRecievedEventArgs(comments[i]));
             }
         }
 
